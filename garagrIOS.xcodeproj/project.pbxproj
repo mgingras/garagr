@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C54B8C701A3E2FD4000FAADF /* SellingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54B8C6F1A3E2FD4000FAADF /* SellingViewController.swift */; };
+		C54B8C721A3E67EE000FAADF /* BuyingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54B8C711A3E67EE000FAADF /* BuyingViewController.swift */; };
+		C54BBB801A3E1414007D0982 /* LoggedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54BBB7F1A3E1414007D0982 /* LoggedInViewController.swift */; };
 		C5F194A41A2D4A1100FD0A4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F194A31A2D4A1100FD0A4F /* AppDelegate.swift */; };
 		C5F194A61A2D4A1100FD0A4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F194A51A2D4A1100FD0A4F /* ViewController.swift */; };
 		C5F194A91A2D4A1100FD0A4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5F194A71A2D4A1100FD0A4F /* Main.storyboard */; };
@@ -26,6 +29,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C54B8C6F1A3E2FD4000FAADF /* SellingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SellingViewController.swift; sourceTree = "<group>"; };
+		C54B8C711A3E67EE000FAADF /* BuyingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyingViewController.swift; sourceTree = "<group>"; };
+		C54BBB7F1A3E1414007D0982 /* LoggedInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggedInViewController.swift; sourceTree = "<group>"; };
 		C5F1949E1A2D4A1100FD0A4F /* garagrIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = garagrIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5F194A21A2D4A1100FD0A4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5F194A31A2D4A1100FD0A4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,9 +86,12 @@
 				C5F194A31A2D4A1100FD0A4F /* AppDelegate.swift */,
 				C5F194A51A2D4A1100FD0A4F /* ViewController.swift */,
 				C5F194A71A2D4A1100FD0A4F /* Main.storyboard */,
+				C54B8C6F1A3E2FD4000FAADF /* SellingViewController.swift */,
 				C5F194AA1A2D4A1100FD0A4F /* Images.xcassets */,
 				C5F194AC1A2D4A1100FD0A4F /* LaunchScreen.xib */,
 				C5F194A11A2D4A1100FD0A4F /* Supporting Files */,
+				C54BBB7F1A3E1414007D0982 /* LoggedInViewController.swift */,
+				C54B8C711A3E67EE000FAADF /* BuyingViewController.swift */,
 			);
 			path = garagrIOS;
 			sourceTree = "<group>";
@@ -212,8 +221,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C54BBB801A3E1414007D0982 /* LoggedInViewController.swift in Sources */,
+				C54B8C721A3E67EE000FAADF /* BuyingViewController.swift in Sources */,
 				C5F194A61A2D4A1100FD0A4F /* ViewController.swift in Sources */,
 				C5F194A41A2D4A1100FD0A4F /* AppDelegate.swift in Sources */,
+				C54B8C701A3E2FD4000FAADF /* SellingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +351,7 @@
 				INFOPLIST_FILE = garagrIOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -349,6 +362,7 @@
 				INFOPLIST_FILE = garagrIOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -405,6 +419,7 @@
 				C5F194BF1A2D4A1100FD0A4F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C5F194C01A2D4A1100FD0A4F /* Build configuration list for PBXNativeTarget "garagrIOSTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +428,7 @@
 				C5F194C21A2D4A1100FD0A4F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

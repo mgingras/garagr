@@ -10,7 +10,9 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    var userId: NSNumber?
+    var username: NSString?
+    
     var window: UIWindow?
 
 
