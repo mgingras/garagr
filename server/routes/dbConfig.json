@@ -1,0 +1,10 @@
+{
+    "connectionLimit" : 10,
+    "host"            : "localhost",
+    "user"            : "root",
+    "password"        : "",
+    "database"        : "garagr",
+    "insecureAuth"    : true,
+    "connectTimeout"  : 0,
+    "debug": false
+}
