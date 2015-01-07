@@ -1,0 +1,58 @@
+extend layout.jade
+
+mixin table-headers
+  th #
+  th Name
+  th Price
+  th Description
+
+mixin item(index, name, price, desc)
+  tr
+    th= index
+    td= name
+    td= price
+
+    if (desc.length > 50)
+      - newDesc = desc.substr(0, 45) + '...'
+      td
+        | #{newDesc} &nbsp;
+        span.glyphicon.glyphicon-info-sign(title=desc)
+    else
+      td #{desc}
+
+block content
+  include nav
+  .container
+    .row
+      .col.xs-12.text-center
+        -if(!user.picture.data.is_silhouette){
+          img.img-thumbnail(src='#{user.picture.data.url}', style='width:200px;')
+        -}else{
+          img.img-thumbnail(src='/img/profile.png')
+        -}
+        h1= user.name
+        h4= user.email
+        -if(user.phone){
+        h4= user.phone
+        -}
+  #buying.container
+    h2 I'm Buying
+    .row
+      h4
+
+  #selling.container
+    h2 I'm Selling
+    .row
+      table.table.table-responsive.table-hover
+
+        thead
+          +table-headers
+        tbody
+          - for (var i = 1; i < 4; ++i)
+            +item(1, 'Name ' + i, '$' + 20 * i + '.00', 'My product description [' + i + ']')
+
+        tfoot
+          +table-headers
+
+
+

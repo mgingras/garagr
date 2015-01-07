@@ -1,0 +1,122 @@
+extend layout
+block content
+  include nav
+  style.
+    .form-signin {
+      max-width: 550px;
+      padding: 15px;
+      margin: 0 auto;
+      text-align:center;
+    }
+    .form-signin .form-signin-heading,
+    .form-signin .checkbox {
+      margin-bottom: 10px;
+    }
+    .form-signin .checkbox {
+      font-weight: normal;
+    }
+    .form-signin .form-control {
+      position: relative;
+      height: auto;
+      -webkit-box-sizing: border-box;
+         -moz-box-sizing: border-box;
+              box-sizing: border-box;
+      padding: 10px;
+      font-size: 16px;
+    }
+    .form-signin .form-control:focus {
+      z-index: 2;
+    }
+    .form-signin input[type="email"] {
+      margin-bottom: -1px;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    .form-signin input[type="password"] {
+      margin-bottom: 10px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+
+  style.
+    .img-drop-border {
+      border: 3px dashed grey;
+      border-radius: 10px;
+      width: 140px;
+      height: 140px;
+    }
+
+  .container
+    form.form-signin(role='form', action='uploadImage', method='post')
+        h1 What you're selling
+        .form-group
+          label.pull-left(for='#img-outline') Photo
+            #img-outline.img-drop-border
+              p#img-text.text-center
+                | Drop Image
+              img#img-thumb.img-rounded(style='width : 140px; height : 140px;' hidden)
+        .form-group
+          label(for='#fileInput') File input
+            input#fileInput(type='file', style='color:#fff;')
+        .form-group
+          label(for='askingPrice') Asking Price
+            #askPriceGroup.input-group.text-left
+              span.input-group-addon.glyphicon.glyphicon-usd
+              input#inputAskPrice.form-control(type='number', placeholder='0.00')
+
+          button.btn.btn-default.pull-right(type='submit', style='margin-top:20px;') Submit
+
+
+
+  script.
+    function handleFileSelect(evt) {
+      evt.stopPropagation();
+      evt.preventDefault();
+
+      var files = evt.dataTransfer.files; // FileList object.
+
+      console.log(files);
+
+      var f = files[0];
+
+      // Only process image files.
+      if (!f.type.match('image.*')) {
+        alert('only images');
+      }
+
+      var reader = new FileReader();
+
+      // Closure to capture the file information.
+      reader.onload = (function(theFile) {
+        return function(e) {
+          // Render thumbnail.
+          //- var span = document.createElement('span');
+          $('#img-outline').toggleClass('img-drop-border');
+
+          $('#img-thumb')
+            .prop('src', e.target.result)
+            .show();
+
+          $('#img-text').hide();
+
+          //- span.innerHTML = ['<img class="thumb" src="', e.target.result,
+          //-                   '" title="', escape(theFile.name), '"/>'].join('');
+          //- document.getElementById('list').insertBefore(span, null);
+        };
+      })(f);
+
+      // Read in the image file as a data URL.
+      reader.readAsDataURL(f);
+    }
+
+    function handleDragOver(evt) {
+      evt.stopPropagation();
+      evt.preventDefault();
+      evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+    }
+
+    // Setup the dnd listeners.
+    var dropZone = document.getElementById('img-outline');
+    dropZone.addEventListener('dragover', handleDragOver, false);
+    dropZone.addEventListener('drop', handleFileSelect, false);
+

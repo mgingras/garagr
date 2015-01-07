@@ -1,0 +1,78 @@
+extends layout
+
+block content
+  script.
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1492750307644007',
+        xfbml      : true,
+        version    : 'v2.1'
+      });
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+
+  style.
+    body {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+    .form-signin {
+      max-width: 550px;
+      padding: 15px;
+      margin: 0 auto;
+      text-align:center;
+    }
+    .form-signin .form-signin-heading,
+    .form-signin .checkbox {
+      margin-bottom: 10px;
+    }
+    .form-signin .checkbox {
+      font-weight: normal;
+    }
+    .form-signin .form-control {
+      position: relative;
+      height: auto;
+      -webkit-box-sizing: border-box;
+         -moz-box-sizing: border-box;
+              box-sizing: border-box;
+      padding: 10px;
+      font-size: 16px;
+    }
+    .form-signin .form-control:focus {
+      z-index: 2;
+    }
+    .form-signin input[type="email"] {
+      margin-bottom: -1px;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    .form-signin input[type="password"] {
+      margin-bottom: 10px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+
+  //- .container
+  //-     form.form-signin(role='form')
+  //-         .fb-like(data-share='true', data-width='450', data-show-faces='true')
+
+  //-         h2.form-signin-heading Please sign in
+  //-         input.form-control(type='email', placeholder='Email address', required='required', autofocus='autofocus')
+  //-         input.form-control(type='password', placeholder='Password', required='required')
+  //-         button.btn.btn-lg.btn-primary.btn-block(type='submit') Sign in
+
+  .container
+      form.form-signin(role='form')
+        h1 Welcome to GARAGr
+        br
+        br
+        .fb-login-button(data-max-rows='1', data-size='xlarge', data-show-faces='true', data-auto-logout-link='false')
+
+  //- script(src='/js/fbAuth.js')

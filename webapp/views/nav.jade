@@ -1,0 +1,23 @@
+-if(back){
+.back(style='position:absolute;left:15px;top:20px;')
+  a(href='#{back}')
+    i.fa.fa-arrow-left.fa-3x
+-}
+.rightNav(style='position:absolute;right:20px;top:20px;')
+  -if(!profile){
+    .profile(style='float:right;margin-left:20px;')
+      a(href='/profile')
+        i.fa.fa-user.fa-3x
+  -}
+  .lock(style='float:right;')
+    a(href='#', onclick='logout();')
+      i.fa.fa-lock.fa-3x
+
+
+script.
+  function logout(){
+    FB.logout();
+    $.post('/logout', function(data, textStatus, xhr){
+      window.location = '/';
+    });
+  }

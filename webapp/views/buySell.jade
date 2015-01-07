@@ -1,0 +1,12 @@
+extend layout.jade
+
+block content
+  include nav
+  .text-center
+    .btn-group-vertical.text-center(style='width: 80%;padding:100px;')
+      a.btn.btn-default(href='/buy', style='height:250px;width:100%;margin-bottom:25px;padding:50px;')
+        i.fa.fa-shopping-cart.fa-4x
+        h1 Buy
+      a.btn.btn-default(href='/sell', style='height:250px;width:100%;padding:50px;')
+        i.fa.fa-dollar.fa-4x
+        h1 Sell

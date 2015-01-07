@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    title= 'GARAGr'
+    link(rel='stylesheet', href='/css/style.css')
+    link(rel='stylesheet', href='/css/font-awesome.min.css')
+    link(rel='stylesheet', href='/css/bootstrap.bootswatch.min.css')
+
+    script(src='/js/jquery.min.js')
+    script(src='/js/bootstrap.min.js')
+
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+
+  body
+    .container
+      if (typeof title !== 'undefined')
+        h2 #{title}
+
+      if (typeof crumbs !== 'undefined')
+        ol.breadcrumb(style='width: 50%;')
+          - console.log(crumbs)
+          - for (var i = 0; i < crumbs.length; ++i)
+            - if (i <= crumbs.length - 2)
+              li
+                a(href='#{crumbs[i][1]}') #{crumbs[i][0]}
+            - else
+              li(class='active') #{crumbs[i]}
+
+      .row.panel.panel-default(style='padding: 30px;')
+        block content
+  include scripts

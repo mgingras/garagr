@@ -1,0 +1,46 @@
+// buy display:
+extends layout
+
+mixin item-display(title, desc, imgSrc, active)
+  .item(class=active ? "active" : "")
+    h4.text-center
+        | #{title}
+
+    img(alt='', src=imgSrc)
+    //- .carousel-caption
+
+    p.text-center
+      | #{desc}
+
+block content
+  include nav
+
+  .container
+    .well
+      #item-view.carousel.slide
+        //- ol.carousel-indicators
+        //-   li.active(data-slide-to='0', data-target='#item-view')
+        //-   li(data-slide-to='1', data-target='#item-view')
+        //-   li(data-slide-to='2', data-target='#item-view')
+        .carousel-inner
+          +item-display('Item 1', 'Desc 1', 'http://lorempixel.com/1600/500/sports/1', true)
+          +item-display('Item 2', 'Desc 2', 'http://lorempixel.com/1600/500/sports/2', false)
+          +item-display('Item 3', 'Desc 3', 'http://lorempixel.com/1600/500/sports/3', false)
+          //- .item
+          //-   img(alt='', src='http://lorempixel.com/1600/500/sports/2')
+          //-   .carousel-caption
+          //-     h4
+          //-       | Second Thumbnail label
+          //-     p
+          //-       | Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+          //- .item.active
+          //-   img(alt='', src='http://lorempixel.com/1600/500/sports/3')
+          //-   //- .carousel-caption
+          //-   h4
+          //-     | Third Thumbnail label
+          //-   p
+          //-     | Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+        a.left.carousel-control(href='#item-view', data-slide='prev', style='background-image: none;')
+          span.glyphicon.glyphicon-chevron-left
+        a.right.carousel-control(href='#item-view', data-slide='next', style='background-image: none;')
+          span.glyphicon.glyphicon-chevron-right
